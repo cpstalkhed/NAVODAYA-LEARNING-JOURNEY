@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NAVODAYA LEARNING JOURNEY — MAT-03 ODD ONE OUT</title>
+<style>*{box-sizing:border-box}
+body{margin:0;font-family:"Noto Sans Devanagari","Nirmala UI",Arial,sans-serif;background:linear-gradient(135deg,#eef6ff,#fff7e8);color:#172033}
+.app,.wrap{max-width:900px;margin:auto;padding:18px}
+header,.hero{background:linear-gradient(135deg,#173b72,#2563a8);color:white;border-radius:22px;padding:24px 20px;text-align:center;box-shadow:0 8px 24px #0002}
+header h1,.hero h1{margin:0;font-size:clamp(24px,5vw,38px)}
+header h2,.hero h2{margin:8px 0 0;font-size:clamp(17px,4vw,24px);font-weight:700}
+.hero p{margin:8px 0 0;font-size:15px}
+.badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:14px}.badge{background:#ffffff20;border:1px solid #ffffff55;border-radius:999px;padding:7px 12px;font-size:14px}
+.panel,.card{background:#fff;border-radius:18px;padding:18px;margin-top:16px;box-shadow:0 4px 18px #19345d18;border:1px solid #dce5f1}.card{margin:16px 0}.panel h2,.card h3{margin-top:0;color:#173b72}
+input[type=text],.input{width:100%;box-sizing:border-box;padding:13px 14px;border:2px solid #cbd5e1;border-radius:12px;font-size:17px}
+button,.btn{border:0;border-radius:12px;padding:12px 17px;font-size:16px;font-weight:700;cursor:pointer;text-decoration:none;text-align:center}.primary,.btn{background:#2563a8;color:#fff}.secondary{background:#e9f1fb;color:#173b72}.success{background:#18864b;color:#fff}.warn{background:#e6a21a;color:#fff}button:disabled{opacity:.55;cursor:not-allowed}
+.progress{height:10px;background:#e7edf5;border-radius:99px;overflow:hidden;margin:10px 0 18px}.progress span,.bar{display:block;height:100%;background:#2563a8;transition:width .25s}.bar{width:0}
+.qmeta{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:#526176;font-weight:700}.question,.q{font-size:22px;line-height:1.6;font-weight:800;margin:16px 0}
+.options{display:grid;grid-template-columns:1fr 1fr;gap:12px}.option,.opt{background:#f7f9fc;border:2px solid #d7e0ec;text-align:left;min-height:54px}.opt{display:block;width:100%;border-radius:12px;padding:13px;margin:9px 0;font-size:17px;cursor:pointer}.option:hover,.opt:hover{border-color:#2563a8;background:#eef6ff}.option.selected{border-color:#2563a8;background:#e8f2ff}.option.correct,.opt.correct{border-color:#18864b;background:#e9f8ef;color:#075c30}.option.wrong,.opt.wrong{border-color:#d64545;background:#fff0f0;color:#9c2020}
+.feedback{margin-top:15px;padding:15px;border-radius:14px;line-height:1.65}.feedback.show{display:block}.feedback.ok,.good{background:#e9f8ef;border:1px solid #9ed7b5}.feedback.no,.bad{background:#fff1f1;border:1px solid #efaaaa}.hint{background:#fff8df;border-left:5px solid #e6a21a;padding:13px;margin-top:14px;border-radius:10px}.explanation,.explain{background:#eef7ff;border-left:5px solid #2563a8;padding:13px;margin-top:12px;border-radius:10px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.actions button{flex:1;min-width:140px}.scorecard{text-align:center}.score{font-size:52px;font-weight:900;color:#173b72}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;text-align:left}.stat{background:#f6f8fb;padding:12px;border-radius:12px;text-align:left}.certificate,.cert{border:6px double #c79b28;padding:28px 18px;text-align:center;background:#fffdf4;border-radius:16px;margin-top:18px}.certificate h2,.cert h2{color:#173b72}.small,.note{font-size:14px;color:#5b677a}.hidden{display:none!important}.review{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:15px}.review button{text-align:left;background:#f4f7fb;border:1px solid #d8e1ed}.challenge{background:#f0f7ff;border:1px solid #bfd8f4;padding:14px;border-radius:14px;margin-top:14px}
+@media(max-width:600px){.app,.wrap{padding:10px}.options,.grid,.review{grid-template-columns:1fr}.question,.q{font-size:19px}.panel,.card{padding:14px}header,.hero{padding:20px 12px}.hero h1{font-size:24px}}</style>
+</head>
+<body>
+<main class="app" id="app">
+<header>
+<h1>🚀 NAVODAYA LEARNING JOURNEY</h1>
+<h2>MAT-03 — ODD ONE OUT</h2>
+<div class="badges">
+<span class="badge">🧠 वेगळा घटक ओळखा</span>
+<span class="badge">20 प्रश्न</span><span class="badge">20 गुण</span>
+</div>
+</header>
+
+<section class="panel" id="start">
+<h2>🎯 चाचणी सुरू करा</h2>
+<p>नियम शोधा → ३ घटक जुळतात का पाहा → वेगळा घटक निवडा → कारण तपासा.</p>
+<label for="studentName"><strong>विद्यार्थ्याचे नाव</strong></label>
+<input id="studentName" type="text" maxlength="60" placeholder="तुमचे नाव लिहा">
+<div class="challenge">💡 <strong>Challenge:</strong> फक्त अंदाजाने उत्तर देऊ नका. चुकीचे उत्तर असल्यास Hint आणि Explanation पाहून पुन्हा सोडवा.</div>
+<button class="primary" id="startBtn" style="margin-top:15px;width:100%">▶️ चाचणी सुरू करा</button>
+</section>
+
+<section class="panel hidden" id="quiz">
+<div class="qmeta"><span id="qNo"></span><span id="liveScore">गुण: 0 / 20</span></div>
+<div class="progress"><span id="progressBar" style="width:0%"></span></div>
+<div class="question" id="question"></div>
+<div class="options" id="options"></div>
+<div class="hint" id="hint"></div>
+<div class="feedback" id="feedback" aria-live="polite"></div>
+<div class="explanation" id="explanation"></div>
+<div class="actions">
+<button class="secondary" id="hintBtn">💡 Hint 1</button>
+<button class="secondary hidden" id="retryBtn">🔄 पुन्हा सोडवा</button>
+<button class="primary" id="nextBtn" disabled>पुढील प्रश्न ➜</button>
+</div>
+</section>
+
+<section class="panel hidden" id="result"></section>
+</main>
+
+<script>
+(function(){
+"use strict";
+
+const questions=[
+{q:"खालीलपैकी वेगळा घटक ओळखा: आंबा, केळी, सफरचंद, बटाटा.",o:["आंबा","बटाटा","केळी","सफरचंद"],a:1,h:"तीन घटक फळे आहेत.",e:"आंबा, केळी आणि सफरचंद ही फळे आहेत; बटाटा हा कंदमूळ/भाजी आहे."},
+{q:"खालीलपैकी वेगळा प्राणी कोणता? गाय, म्हैस, शेळी, वाघ.",o:["वाघ","गाय","म्हैस","शेळी"],a:0,h:"तीन प्राणी पाळीव आहेत.",e:"गाय, म्हैस आणि शेळी हे पाळीव प्राणी आहेत. वाघ हा वन्य प्राणी आहे."},
+{q:"खालीलपैकी वेगळा घटक ओळखा: सोमवार, मंगळवार, जानेवारी, बुधवार.",o:["सोमवार","मंगळवार","जानेवारी","बुधवार"],a:2,h:"तीन घटक आठवड्याचे वार आहेत.",e:"सोमवार, मंगळवार आणि बुधवार हे वार आहेत. जानेवारी हा महिना आहे."},
+{q:"खालीलपैकी वेगळा घटक शोधा: पेन, पेन्सिल, वही, रबर.",o:["पेन","वही","पेन्सिल","रबर"],a:1,h:"तीन घटक लहान लेखन-साहित्याची साधने आहेत; एक लिहिण्यासाठीची पुस्तिका आहे.",e:"पेन, पेन्सिल आणि रबर ही लेखन-साहित्याची लहान साधने आहेत. वही ही लिहिण्यासाठीची पुस्तिका आहे."},
+{q:"खालीलपैकी वेगळा घटक कोणता? कावळा, चिमणी, पोपट, गाढव.",o:["गाढव","कावळा","चिमणी","पोपट"],a:0,h:"तीन घटक पक्षी आहेत.",e:"कावळा, चिमणी आणि पोपट हे पक्षी आहेत. गाढव हा सस्तन प्राणी आहे."},
+{q:"दिलेल्या पर्यायांमधून वेगळा घटक ओळखा: लाल, निळा, पिवळा, गोल.",o:["लाल","गोल","निळा","पिवळा"],a:1,h:"तीन शब्द रंग दर्शवतात.",e:"लाल, निळा आणि पिवळा हे रंग आहेत. गोल हा आकार आहे."},
+{q:"खालीलपैकी वेगळा खेळ कोणता? क्रिकेट, फुटबॉल, हॉकी, बुद्धिबळ.",o:["बुद्धिबळ","क्रिकेट","फुटबॉल","हॉकी"],a:0,h:"तीन खेळ मैदानावर खेळले जातात.",e:"क्रिकेट, फुटबॉल आणि हॉकी हे मैदानी खेळ आहेत. बुद्धिबळ हा बैठा/बुद्धीचा खेळ आहे."},
+{q:"खालीलपैकी वेगळा घटक ओळखा: कांदा, बटाटा, टोमॅटो, लसूण.",o:["कांदा","टोमॅटो","बटाटा","लसूण"],a:1,h:"तीन घटक जमिनीखाली मिळणारे कंद/गड्डे आहेत.",e:"कांदा, बटाटा आणि लसूण हे जमिनीखाली मिळणारे कंद/गड्डे आहेत. टोमॅटोचे फळ झाडाच्या वरील भागात येते."},
+{q:"खालीलपैकी वेगळी संख्या शोधा: 2, 4, 6, 7.",o:["2","4","7","6"],a:2,h:"तीन संख्या सम आहेत.",e:"2, 4 आणि 6 या सम संख्या आहेत. 7 ही विषम संख्या आहे."},
+{q:"दिलेल्या पर्यायांमधून वेगळे वाहन ओळखा: बस, रेल्वे, सायकल, विमान.",o:["सायकल","बस","रेल्वे","विमान"],a:0,h:"तीन वाहनांना इंजिन असते.",e:"बस, रेल्वे आणि विमान यांना इंजिन असते. सायकल मानवी शक्तीने चालते."},
+{q:"खालीलपैकी वेगळा घटक कोणता? कान, नाक, डोळा, हाताची बोटे.",o:["कान","नाक","हाताची बोटे","डोळा"],a:2,h:"तीन पर्याय प्रमुख ज्ञानेंद्रियांशी संबंधित आहेत.",e:"कान, नाक आणि डोळे ही प्रमुख ज्ञानेंद्रिये आहेत. हाताची बोटे ही शरीराचा भाग आहेत."},
+{q:"खालीलपैकी वेगळा घटक शोधा: गुलाब, मोगरा, सूर्यफूल, आंबा.",o:["आंबा","गुलाब","मोगरा","सूर्यफूल"],a:0,h:"तीन घटक फुले आहेत.",e:"गुलाब, मोगरा आणि सूर्यफूल ही फुले आहेत. आंबा हे फळ आहे."},
+{q:"खालीलपैकी वेगळा घटक ओळखा: महाराष्ट्र, भारत, गुजरात, पंजाब.",o:["महाराष्ट्र","गुजरात","पंजाब","भारत"],a:3,h:"तीन घटक राज्ये आहेत.",e:"महाराष्ट्र, गुजरात आणि पंजाब ही भारतातील राज्ये आहेत. भारत हा देश आहे."},
+{q:"खालीलपैकी वेगळा पर्याय शोधा: चहा, कॉफी, पाणी, दूध.",o:["चहा","कॉफी","दूध","पाणी"],a:3,h:"चहा, कॉफी आणि दूध ही सामान्यतः पेये म्हणून घेतली जाणारी खाद्यपदार्थ आहेत.",e:"चहा, कॉफी आणि दूध ही खाद्यपेय आहेत. पाणी हे नैसर्गिक द्रव आहे."},
+{q:"खालीलपैकी वेगळा घटक कोणता? त्रिकोण, चौकोन, वर्तुळ, पुस्तक.",o:["त्रिकोण","चौकोन","पुस्तक","वर्तुळ"],a:2,h:"तीन घटक भौमितिक आकृती आहेत.",e:"त्रिकोण, चौकोन आणि वर्तुळ या भौमितिक आकृती आहेत. पुस्तक ही वस्तू आहे."},
+{q:"खालीलपैकी वेगळा घटक शोधा: शिक्षक, डॉक्टर, शाळा, शेतकरी.",o:["शिक्षक","डॉक्टर","शेतकरी","शाळा"],a:3,h:"तीन पर्याय व्यक्ती/व्यवसाय दर्शवतात.",e:"शिक्षक, डॉक्टर आणि शेतकरी हे व्यक्ती/व्यवसाय आहेत. शाळा ही संस्था/ठिकाण आहे."},
+{q:"खालीलपैकी वेगळी संख्या शोधा: 10, 15, 20, 22.",o:["10","15","22","20"],a:2,h:"तीन संख्या 5 च्या पटीत आहेत.",e:"10, 15 आणि 20 या 5 च्या पटी आहेत. 22 ही 5 ची पटी नाही."},
+{q:"खालीलपैकी वेगळा घटक ओळखा: हिवाळा, उन्हाळा, पावसाळा, बुधवार.",o:["हिवाळा","उन्हाळा","पावसाळा","बुधवार"],a:3,h:"तीन घटक ऋतू आहेत.",e:"हिवाळा, उन्हाळा आणि पावसाळा हे ऋतू आहेत. बुधवार हा वार आहे."},
+{q:"खालीलपैकी वेगळा प्राणी कोणता? सिंह, वाघ, बिबट्या, गाय.",o:["सिंह","गाय","वाघ","बिबट्या"],a:1,h:"तीन प्राणी मांसाहारी वन्य प्राणी आहेत.",e:"सिंह, वाघ आणि बिबट्या हे मांसाहारी वन्य प्राणी आहेत. गाय ही पाळीव शाकाहारी प्राणी आहे."},
+{q:"खालीलपैकी वेगळा घटक शोधा: खिडकी, दरवाजा, भिंत, टीव्ही.",o:["खिडकी","दरवाजा","भिंत","टीव्ही"],a:3,h:"तीन घटक घराच्या बांधकामाचा भाग आहेत.",e:"खिडकी, दरवाजा आणि भिंत हे घराच्या रचनेचे भाग आहेत. टीव्ही हे इलेक्ट्रॉनिक उपकरण आहे."}
+];
+
+const labels=["A","B","C","D"];
+let idx=0,score=0,answered=false,answers=[],name="";
+
+const $=id=>document.getElementById(id);
+const start=$("start"),quiz=$("quiz"),result=$("result");
+const qNo=$("qNo"),liveScore=$("liveScore"),bar=$("progressBar"),question=$("question"),options=$("options");
+const hint=$("hint"),feedback=$("feedback"),explanation=$("explanation");
+const hintBtn=$("hintBtn"),retryBtn=$("retryBtn"),nextBtn=$("nextBtn");
+
+function showQuestion(){
+ const x=questions[idx]; answered=false;
+ qNo.textContent=`प्रश्न ${idx+1} / ${questions.length}`;
+ liveScore.textContent=`गुण: ${score} / 20`;
+ bar.style.width=((idx)/questions.length*100)+"%";
+ question.textContent=x.q;
+ options.innerHTML="";
+ x.o.forEach((txt,i)=>{
+  const b=document.createElement("button"); b.type="button"; b.className="option";
+  b.textContent=`${labels[i]}. ${txt}`;
+  b.addEventListener("click",()=>select(i));
+  options.appendChild(b);
+ });
+ hint.textContent="💡 Hint: "+x.h; hint.className="hint";
+ feedback.className="feedback"; feedback.textContent="";
+ explanation.textContent="📘 स्पष्टीकरण: "+x.e; explanation.className="explanation";
+ hintBtn.classList.remove("hidden"); retryBtn.classList.add("hidden"); nextBtn.disabled=true;
+}
+function select(choice){
+ if(answered)return;
+ answered=true;
+ const x=questions[idx], btns=[...options.children];
+ btns.forEach((b,i)=>{if(i===x.a)b.classList.add("correct"); if(i===choice && i!==x.a)b.classList.add("wrong");});
+ const ok=choice===x.a; if(ok)score++;
+ answers[idx]={choice,ok};
+ feedback.className="feedback show "+(ok?"ok":"no");
+ feedback.innerHTML=ok?"🟢 <strong>बरोबर!</strong> छान निरीक्षण.":"🔴 <strong>चूक.</strong> योग्य उत्तर "+labels[x.a]+" आहे. Hint/स्पष्टीकरण पाहा.";
+ explanation.className="explanation show";
+ retryBtn.classList.toggle("hidden",ok);
+ hintBtn.classList.remove("hidden");
+ nextBtn.disabled=false;
+ nextBtn.textContent=idx===questions.length-1?"🏁 निकाल पाहा":"पुढील प्रश्न ➜";
+ liveScore.textContent=`गुण: ${score} / 20`;
+}
+hintBtn.addEventListener("click",()=>{hint.classList.toggle("show");});
+retryBtn.addEventListener("click",()=>{
+ const x=questions[idx];
+ answered=false; feedback.className="feedback"; explanation.className="explanation"; retryBtn.classList.add("hidden"); nextBtn.disabled=true;
+ [...options.children].forEach(b=>b.classList.remove("correct","wrong"));
+ hint.className="hint show";
+});
+nextBtn.addEventListener("click",()=>{
+ if(nextBtn.disabled)return;
+ if(idx<questions.length-1){idx++;showQuestion();}else finish();
+});
+$("startBtn").addEventListener("click",()=>{
+ name=$("studentName").value.trim()||"विद्यार्थी";
+ start.classList.add("hidden"); quiz.classList.remove("hidden"); showQuestion();
+ window.scrollTo({top:0,behavior:"smooth"});
+});
+
+function finish(){
+ quiz.classList.add("hidden"); result.classList.remove("hidden");
+ const wrong=20-score, acc=Math.round(score/20*100);
+ let level=score>=18?"🟢 उत्कृष्ट":score>=15?"🔵 उत्तम":score>=10?"🟡 चांगली सुरुवात":"🔴 पुन्हा सराव आवश्यक";
+ const weak=answers.map((a,i)=>a&&!a.ok?i+1:null).filter(Boolean);
+ result.innerHTML=`
+ <div class="scorecard">
+ <h2>🎉 चाचणी पूर्ण!</h2>
+ <p><strong>${escapeHtml(name)}</strong>, तुमची MAT-03 चाचणी पूर्ण झाली.</p>
+ <div class="score">${score} / 20</div>
+ <div class="grid">
+  <div class="stat">✅ बरोबर<br><strong>${score}</strong></div>
+  <div class="stat">❌ चुकीचे<br><strong>${wrong}</strong></div>
+  <div class="stat">🎯 अचूकता<br><strong>${acc}%</strong></div>
+  <div class="stat">🏆 कामगिरी<br><strong>${level}</strong></div>
+ </div>
+ <p class="small">चुकीचे प्रश्न: ${weak.length?weak.join(", "):"एकही नाही — उत्कृष्ट!"}</p>
+ <div class="actions">
+  <button class="primary" id="certBtn">🏅 प्रमाणपत्र दाखवा</button>
+  <button class="secondary" id="restartBtn">🔄 पुन्हा चाचणी</button>
+ </div>
+ <div id="cert" class="certificate hidden">
+  <h2>🏅 QA Checked &amp; Accurate</h2>
+  <h3>NAVODAYA LEARNING JOURNEY</h3>
+  <h3>MAT-03 यशस्वीरीत्या पूर्ण केल्याबद्दल प्रमाणपत्र</h3>
+  <p>हे प्रमाणित करण्यात येते की</p>
+  <h2>${escapeHtml(name)}</h2>
+  <p>यांनी <strong>MAT-03 — ODD ONE OUT</strong> चाचणी पूर्ण केली.</p>
+  <p><strong>गुण: ${score} / 20</strong></p>
+  <p><strong>अचूकता: ${acc}%</strong></p>
+  <hr>
+  <p><strong>सौजन्य - श्री. प्रवीण वसंतराव जाधव</strong><br>
+  जि.प. केंद्रीय प्राथमिक शाळा, तालखेड<br>
+  📞 9527672044</p>
+ </div>
+ <div class="panel" style="box-shadow:none;border:0;background:#f8fafc">
+ <h3>🔎 पुनरावलोकन</h3>
+ <p class="small">चुकीच्या प्रश्नावर टॅप करून Hint आणि Explanation पुन्हा पाहता येईल.</p>
+ <div class="review" id="review"></div>
+ </div>
+ </div>`;
+ $("certBtn").addEventListener("click",()=>{$("cert").classList.toggle("hidden");});
+ $("restartBtn").addEventListener("click",()=>{idx=0;score=0;answers=[];result.classList.add("hidden");quiz.classList.remove("hidden");showQuestion();window.scrollTo({top:0,behavior:"smooth"});});
+ const rev=$("review");
+ questions.forEach((x,i)=>{
+  const b=document.createElement("button"); b.type="button";
+  const a=answers[i]; b.textContent=`Q${i+1} — ${a&&a.ok?"✅ बरोबर":"❌ पुन्हा सराव"}`;
+  b.addEventListener("click",()=>{idx=i;result.classList.add("hidden");quiz.classList.remove("hidden");showQuestion();});
+  rev.appendChild(b);
+ });
+ bar.style.width="100%";
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+function escapeHtml(s){return s.replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));}
+})();
+</script>
+</body>
+</html>
